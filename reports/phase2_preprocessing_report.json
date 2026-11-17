@@ -1,0 +1,70 @@
+{
+  "phase": "Phase 2 - Data Preprocessing",
+  "config": {
+    "weights": {
+      "view_weight": 1.0,
+      "addtocart_weight": 3.0,
+      "transaction_weight": 5.0,
+      "repeat_damping_factor": 0.5,
+      "recency_half_life_days": 30.0
+    },
+    "session_inactivity_minutes": 30,
+    "min_user_interactions_warm": 2,
+    "bot_max_interactions_threshold": 1000,
+    "filter_bot_users_in_clean_events": false,
+    "top_k_hashed_properties_to_keep": 50,
+    "chunk_size": 500000,
+    "valid_events": [
+      "view",
+      "addtocart",
+      "transaction"
+    ]
+  },
+  "events_cleaning_and_sessions": {
+    "raw_events_count": 2756101,
+    "invalid_rows_dropped": 0,
+    "exact_duplicates_dropped": 460,
+    "clean_events_count": 2755641,
+    "unique_users_clean": 1407580,
+    "unique_items_clean": 235061,
+    "total_sessions_constructed": 1761675,
+    "warm_users_ge_min_interactions_count": 405989,
+    "flagged_bot_users_count": 30,
+    "flagged_bot_events_count": 61183,
+    "bots_removed": false
+  },
+  "weighted_interactions_summary": {
+    "unique_user_item_pairs": 2145179,
+    "confirmed_purchase_pairs": 21270,
+    "cart_addition_pairs": 62025,
+    "raw_preference_score_quantiles": {
+      "min": 1.0,
+      "median": 1.0,
+      "p90": 1.3466,
+      "p99": 5.7329,
+      "max": 19.2611
+    },
+    "implicit_confidence_score_quantiles": {
+      "min": 0.0412,
+      "median": 0.2164,
+      "p90": 0.7881,
+      "p99": 1.8199,
+      "max": 15.7367
+    }
+  },
+  "items_and_taxonomy_summary": {
+    "total_universe_items": 466868,
+    "items_in_properties_catalog": 417053,
+    "interacted_items_total": 235061,
+    "interacted_items_with_metadata": 185246,
+    "orphan_interacted_items_without_metadata": 49815,
+    "cold_catalog_items_without_events": 231807,
+    "total_taxonomy_categories": 1699
+  },
+  "output_files": {
+    "events_clean": "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\data\\processed\\events_clean.parquet",
+    "user_item_interactions": "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\data\\processed\\user_item_interactions.parquet",
+    "items_metadata": "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\data\\processed\\items_metadata.parquet",
+    "category_taxonomy": "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\data\\processed\\category_taxonomy.parquet"
+  }
+}
