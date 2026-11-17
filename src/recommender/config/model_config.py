@@ -76,6 +76,39 @@ class TemporalSplitConfig:
             raise ValueError("Chaque ratio (train, val, test) doit être > 0.")
 
 
+@dataclass(frozen=True)
+class FeatureConfig:
+    """Configuration du Feature Engineering (Phase 3 - Sections 6.1, 6.2, 6.3).
+
+    Attributes:
+        item_decay_half_life_days: Demi-vie en jours pour la popularité produit
+            pondérée exponentiellement par le temps.
+        short_window_days: Fenêtre récente courte (en jours, par défaut 7j).
+        medium_window_days: Fenêtre récente moyenne (en jours, par défaut 14j).
+        long_window_days: Fenêtre de référence (en jours, par défaut 30j) pour
+            calculer la vélocité/tendance (ratio 7j vs 30j).
+        bayesian_smoothing_prior_count: Masse a priori `m` pour le lissage bayésien
+            du taux de conversion produit : (tx + m * global_rate) / (views + m).
+        min_transition_cooccurrence: Seuil minimal d'observations pour conserver
+            une transition séquentielle (item_a -> item_b) intra-session.
+        max_transitions_per_item: Nombre maximal de successeurs conservés par produit.
+        exclude_bots_from_item_popularity: Si True, ignore les profils identifiés
+            comme bots (>1000 interactions) lors du calcul de la popularité produit
+            et des transitions séquentielles.
+    """
+
+    item_decay_half_life_days: float = 14.0
+    short_window_days: int = 7
+    medium_window_days: int = 14
+    long_window_days: int = 30
+    bayesian_smoothing_prior_count: float = 20.0
+    min_transition_cooccurrence: int = 2
+    max_transitions_per_item: int = 30
+    exclude_bots_from_item_popularity: bool = True
+
+
 DEFAULT_PREPROCESSING_CONFIG = PreprocessingConfig()
 DEFAULT_TEMPORAL_SPLIT_CONFIG = TemporalSplitConfig()
+DEFAULT_FEATURE_CONFIG = FeatureConfig()
+
 
