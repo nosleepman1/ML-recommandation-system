@@ -54,4 +54,28 @@ class PreprocessingConfig:
     valid_events: Tuple[str, ...] = ("view", "addtocart", "transaction")
 
 
+@dataclass(frozen=True)
+class TemporalSplitConfig:
+    """Configuration du découpage temporel strict Train / Validation / Test.
+
+    Garantit qu'aucune interaction future n'est utilisée lors du calcul des
+    features ou de l'entraînement des modèles (zéro fuite temporelle).
+    """
+
+    train_ratio: float = 0.80
+    val_ratio: float = 0.10
+    test_ratio: float = 0.10
+
+    def __post_init__(self) -> None:
+        total = self.train_ratio + self.val_ratio + self.test_ratio
+        if abs(total - 1.0) > 1e-6:
+            raise ValueError(
+                f"La somme des ratios temporels doit valoir 1.0 (reçu: {total})."
+            )
+        if min(self.train_ratio, self.val_ratio, self.test_ratio) <= 0.0:
+            raise ValueError("Chaque ratio (train, val, test) doit être > 0.")
+
+
 DEFAULT_PREPROCESSING_CONFIG = PreprocessingConfig()
+DEFAULT_TEMPORAL_SPLIT_CONFIG = TemporalSplitConfig()
+
