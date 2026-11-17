@@ -1,0 +1,543 @@
+{
+  "phase": "Phase 1 - Data Comprehension and Audit",
+  "files_inspection_4_1": [
+    {
+      "file_name": "events.csv",
+      "file_size_mb": 89.87,
+      "num_rows": 2756101,
+      "num_columns": 5,
+      "columns": [
+        "timestamp",
+        "visitorid",
+        "event",
+        "itemid",
+        "transactionid"
+      ],
+      "dtypes": {
+        "timestamp": "int64",
+        "visitorid": "int64",
+        "event": "string",
+        "itemid": "int64",
+        "transactionid": "Int64"
+      },
+      "missing_counts": {
+        "timestamp": 0,
+        "visitorid": 0,
+        "event": 0,
+        "itemid": 0,
+        "transactionid": 2733644
+      },
+      "missing_percentages": {
+        "timestamp": 0.0,
+        "visitorid": 0.0,
+        "event": 0.0,
+        "itemid": 0.0,
+        "transactionid": 99.1852
+      },
+      "exact_duplicate_rows": 460,
+      "exact_duplicate_percentage": 0.0167,
+      "timestamp_min_ms": 1430622004384,
+      "timestamp_max_ms": 1442545187788,
+      "timestamp_min_utc": "2015-05-03 03:00:04 UTC",
+      "timestamp_max_utc": "2015-09-18 02:59:47 UTC",
+      "anomalies": []
+    },
+    {
+      "file_name": "category_tree.csv",
+      "file_size_mb": 0.01,
+      "num_rows": 1669,
+      "num_columns": 2,
+      "columns": [
+        "categoryid",
+        "parentid"
+      ],
+      "dtypes": {
+        "categoryid": "int64",
+        "parentid": "Int64"
+      },
+      "missing_counts": {
+        "categoryid": 0,
+        "parentid": 25
+      },
+      "missing_percentages": {
+        "categoryid": 0.0,
+        "parentid": 1.4979
+      },
+      "exact_duplicate_rows": 0,
+      "exact_duplicate_percentage": 0.0,
+      "timestamp_min_ms": null,
+      "timestamp_max_ms": null,
+      "timestamp_min_utc": null,
+      "timestamp_max_utc": null,
+      "anomalies": []
+    },
+    {
+      "file_name": "item_properties_part1.csv",
+      "file_size_mb": 461.88,
+      "num_rows": 10999999,
+      "num_columns": 4,
+      "columns": [
+        "timestamp",
+        "itemid",
+        "property",
+        "value"
+      ],
+      "dtypes": {
+        "timestamp": "int64",
+        "itemid": "int64",
+        "property": "string",
+        "value": "string"
+      },
+      "missing_counts": {
+        "timestamp": 0,
+        "itemid": 0,
+        "property": 0,
+        "value": 0
+      },
+      "missing_percentages": {
+        "timestamp": 0.0,
+        "itemid": 0.0,
+        "property": 0.0,
+        "value": 0.0
+      },
+      "exact_duplicate_rows": 0,
+      "exact_duplicate_percentage": 0.0,
+      "timestamp_min_ms": 1431226800000,
+      "timestamp_max_ms": 1442113200000,
+      "timestamp_min_utc": "2015-05-10 03:00:00 UTC",
+      "timestamp_max_utc": "2015-09-13 03:00:00 UTC",
+      "anomalies": []
+    },
+    {
+      "file_name": "item_properties_part2.csv",
+      "file_size_mb": 389.99,
+      "num_rows": 9275903,
+      "num_columns": 4,
+      "columns": [
+        "timestamp",
+        "itemid",
+        "property",
+        "value"
+      ],
+      "dtypes": {
+        "timestamp": "int64",
+        "itemid": "int64",
+        "property": "string",
+        "value": "string"
+      },
+      "missing_counts": {
+        "timestamp": 0,
+        "itemid": 0,
+        "property": 0,
+        "value": 0
+      },
+      "missing_percentages": {
+        "timestamp": 0.0,
+        "itemid": 0.0,
+        "property": 0.0,
+        "value": 0.0
+      },
+      "exact_duplicate_rows": 0,
+      "exact_duplicate_percentage": 0.0,
+      "timestamp_min_ms": 1431226800000,
+      "timestamp_max_ms": 1442113200000,
+      "timestamp_min_utc": "2015-05-10 03:00:00 UTC",
+      "timestamp_max_utc": "2015-09-13 03:00:00 UTC",
+      "anomalies": []
+    }
+  ],
+  "interactions_and_temporal_4_2": {
+    "summary": {
+      "total_interactions": 2756101,
+      "unique_visitors": 1407580,
+      "unique_items_interacted": 235061,
+      "unique_user_item_pairs": 2145179,
+      "matrix_density_percent": 0.000648,
+      "matrix_sparsity_percent": 99.999352,
+      "functional_duplicates_count": 460,
+      "unexpected_event_types": [],
+      "transactions_missing_txid": 0,
+      "non_transactions_having_txid": 0
+    },
+    "event_breakdown": {
+      "counts": {
+        "view": 2664312,
+        "addtocart": 69332,
+        "transaction": 22457
+      },
+      "percentages": {
+        "view": 96.6696,
+        "addtocart": 2.5156,
+        "transaction": 0.8148
+      },
+      "conversion_rates": {
+        "view_to_cart_event_ratio_pct": 2.602,
+        "cart_to_tx_event_ratio_pct": 32.391,
+        "view_to_tx_event_ratio_pct": 0.843
+      }
+    },
+    "distributions": {
+      "interactions_per_user": {
+        "min": 1.0,
+        "mean": 1.958,
+        "std": 12.5805,
+        "p25": 1.0,
+        "median_p50": 1.0,
+        "p75": 2.0,
+        "p90": 3.0,
+        "p95": 5.0,
+        "p99": 13.0,
+        "p99_9": 47.0,
+        "max": 7757.0
+      },
+      "interactions_per_item": {
+        "min": 1.0,
+        "mean": 11.725,
+        "std": 37.0321,
+        "p25": 1.0,
+        "median_p50": 3.0,
+        "p75": 9.0,
+        "p90": 25.0,
+        "p95": 47.0,
+        "p99": 143.0,
+        "p99_9": 426.0,
+        "max": 3412.0
+      },
+      "unique_items_per_user": {
+        "min": 1.0,
+        "mean": 1.524,
+        "std": 7.1437,
+        "p25": 1.0,
+        "median_p50": 1.0,
+        "p75": 1.0,
+        "p90": 2.0,
+        "p95": 3.0,
+        "p99": 8.0,
+        "p99_9": 26.0,
+        "max": 3814.0
+      },
+      "long_tail_concentration": {
+        "top_1pct_items_share_pct": 22.95,
+        "top_5pct_items_share_pct": 49.32,
+        "top_10pct_items_share_pct": 64.03,
+        "top_20pct_items_share_pct": 78.71
+      },
+      "top_active_users": [
+        {
+          "visitorid": 1150086,
+          "interactions": 7757
+        },
+        {
+          "visitorid": 530559,
+          "interactions": 4328
+        },
+        {
+          "visitorid": 152963,
+          "interactions": 3024
+        },
+        {
+          "visitorid": 895999,
+          "interactions": 2474
+        },
+        {
+          "visitorid": 163561,
+          "interactions": 2410
+        },
+        {
+          "visitorid": 371606,
+          "interactions": 2345
+        },
+        {
+          "visitorid": 286616,
+          "interactions": 2252
+        },
+        {
+          "visitorid": 684514,
+          "interactions": 2246
+        },
+        {
+          "visitorid": 892013,
+          "interactions": 2024
+        },
+        {
+          "visitorid": 861299,
+          "interactions": 1991
+        }
+      ],
+      "top_popular_items": [
+        {
+          "itemid": 187946,
+          "interactions": 3412
+        },
+        {
+          "itemid": 461686,
+          "interactions": 2978
+        },
+        {
+          "itemid": 5411,
+          "interactions": 2334
+        },
+        {
+          "itemid": 370653,
+          "interactions": 1854
+        },
+        {
+          "itemid": 219512,
+          "interactions": 1800
+        },
+        {
+          "itemid": 257040,
+          "interactions": 1647
+        },
+        {
+          "itemid": 298009,
+          "interactions": 1642
+        },
+        {
+          "itemid": 96924,
+          "interactions": 1633
+        },
+        {
+          "itemid": 309778,
+          "interactions": 1628
+        },
+        {
+          "itemid": 384302,
+          "interactions": 1608
+        }
+      ],
+      "top_purchased_items": [
+        {
+          "itemid": 461686,
+          "purchases": 133
+        },
+        {
+          "itemid": 119736,
+          "purchases": 97
+        },
+        {
+          "itemid": 213834,
+          "purchases": 92
+        },
+        {
+          "itemid": 7943,
+          "purchases": 46
+        },
+        {
+          "itemid": 312728,
+          "purchases": 46
+        },
+        {
+          "itemid": 445351,
+          "purchases": 45
+        },
+        {
+          "itemid": 48030,
+          "purchases": 41
+        },
+        {
+          "itemid": 248455,
+          "purchases": 38
+        },
+        {
+          "itemid": 420960,
+          "purchases": 38
+        },
+        {
+          "itemid": 17478,
+          "purchases": 37
+        }
+      ]
+    },
+    "temporal_analysis": {
+      "min_timestamp_ms": 1430622004384,
+      "max_timestamp_ms": 1442545187788,
+      "min_datetime_utc": "2015-05-03 03:00:04 UTC",
+      "max_datetime_utc": "2015-09-18 02:59:47 UTC",
+      "observation_span_days": 138.0,
+      "num_active_calendar_days": 139,
+      "daily_interactions_summary": {
+        "min": 1528.0,
+        "mean": 19828.0647,
+        "std": 4170.6543,
+        "p25": 16831.5,
+        "median_p50": 20621.0,
+        "p75": 22461.0,
+        "p90": 24046.6,
+        "p95": 25410.699999999997,
+        "p99": 28008.72000000001,
+        "p99_9": 32131.54199999998,
+        "max": 32703.0
+      },
+      "hourly_interactions_utc": {
+        "0": 144303,
+        "1": 140702,
+        "2": 145879,
+        "3": 150860,
+        "4": 147184,
+        "5": 119572,
+        "6": 76972,
+        "7": 43944,
+        "8": 25309,
+        "9": 17909,
+        "10": 16408,
+        "11": 20330,
+        "12": 31486,
+        "13": 51089,
+        "14": 81823,
+        "15": 129092,
+        "16": 161784,
+        "17": 179651,
+        "18": 181200,
+        "19": 183348,
+        "20": 187919,
+        "21": 184297,
+        "22": 175956,
+        "23": 159084
+      },
+      "dayofweek_interactions_utc": {
+        "Tuesday": 447077,
+        "Monday": 439813,
+        "Wednesday": 431114,
+        "Thursday": 418761,
+        "Friday": 379699,
+        "Sunday": 334422,
+        "Saturday": 305215
+      },
+      "user_recency_days_summary": {
+        "min": 0.0,
+        "mean": 68.3211,
+        "std": 39.1608,
+        "p25": 35.42847092592593,
+        "median_p50": 67.07738195023148,
+        "p75": 102.08529757523148,
+        "p90": 123.01171243634259,
+        "p95": 129.98060498437502,
+        "p99": 136.2244943611111,
+        "p99_9": 137.85870248347226,
+        "max": 137.9997279976852
+      }
+    }
+  },
+  "product_and_taxonomy_4_3": {
+    "category_tree": {
+      "total_rows": 1669,
+      "unique_category_ids": 1669,
+      "total_distinct_nodes_including_parents": 1669,
+      "root_categories_count": 25,
+      "leaf_categories_count": 1307,
+      "orphan_parent_nodes_count": 0,
+      "cycles_detected": 0,
+      "max_tree_depth": 5,
+      "mean_tree_depth": 2.4,
+      "depth_distribution": {
+        "0": 25,
+        "1": 174,
+        "2": 702,
+        "3": 665,
+        "4": 90,
+        "5": 13
+      }
+    },
+    "item_properties": {
+      "total_property_rows_combined": 20275902,
+      "unique_items_in_properties": 417053,
+      "unique_properties_count": 1104,
+      "items_with_categoryid_count": 417053,
+      "items_with_available_flag_count": 417053,
+      "interacted_items_coverage": {
+        "total_interacted_items_in_events": 235061,
+        "interacted_items_with_properties_count": 185246,
+        "interacted_items_with_properties_pct": 78.81,
+        "interacted_items_missing_properties_count": 49815,
+        "interacted_items_missing_properties_pct": 21.19,
+        "interacted_items_with_category_count": 185246,
+        "interacted_items_with_category_pct": 78.81,
+        "catalog_items_never_interacted_count": 231807
+      },
+      "property_distributions": {
+        "top_most_frequent_properties": [
+          {
+            "property": "888",
+            "occurrences": 3000398,
+            "share_pct": 14.798
+          },
+          {
+            "property": "790",
+            "occurrences": 1790516,
+            "share_pct": 8.831
+          },
+          {
+            "property": "available",
+            "occurrences": 1503639,
+            "share_pct": 7.416
+          },
+          {
+            "property": "categoryid",
+            "occurrences": 788214,
+            "share_pct": 3.887
+          },
+          {
+            "property": "6",
+            "occurrences": 631471,
+            "share_pct": 3.114
+          },
+          {
+            "property": "283",
+            "occurrences": 597419,
+            "share_pct": 2.946
+          },
+          {
+            "property": "776",
+            "occurrences": 574220,
+            "share_pct": 2.832
+          },
+          {
+            "property": "678",
+            "occurrences": 481966,
+            "share_pct": 2.377
+          },
+          {
+            "property": "364",
+            "occurrences": 476486,
+            "share_pct": 2.35
+          },
+          {
+            "property": "202",
+            "occurrences": 448938,
+            "share_pct": 2.214
+          }
+        ],
+        "rare_properties_le_5_occurrences": 31,
+        "single_occurrence_properties": 15,
+        "hashed_numeric_values_count": 3248611,
+        "hashed_numeric_values_pct": 16.02,
+        "categories_in_props_missing_from_tree_count": 30
+      }
+    }
+  },
+  "behavioral_segmentation_4_4": {
+    "single_interaction_users_count": 1001560,
+    "single_interaction_users_pct": 71.15,
+    "casual_users_le_2_events_count": 1207552,
+    "casual_users_le_2_events_pct": 85.79,
+    "active_users_ge_10_events_count": 23241,
+    "active_users_ge_10_events_pct": 1.65,
+    "view_only_users_count": 1368715,
+    "view_only_users_pct": 97.24,
+    "cart_abandoner_users_count": 27146,
+    "cart_abandoner_users_pct": 1.93,
+    "buyer_users_count": 11719,
+    "buyer_users_pct": 0.83,
+    "users_with_repeat_item_interactions_count": 235923,
+    "users_with_repeat_item_interactions_pct": 16.76,
+    "repeat_buyer_users_count": 2576,
+    "mean_repeat_interaction_ratio": 0.0791
+  },
+  "generated_figures": [
+    "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\reports\\figures\\01_event_funnel.png",
+    "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\reports\\figures\\02_daily_temporal_evolution.png",
+    "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\reports\\figures\\03_user_item_long_tail_distributions.png",
+    "E:\\_\\PROJECTS\\MACHINE LEARNING\\RECOMMANDATION\\reports\\figures\\04_hourly_and_user_segments.png"
+  ]
+}
