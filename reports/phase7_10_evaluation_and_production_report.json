@@ -1,0 +1,325 @@
+{
+  "phase": "Phases 4 to 10 - Models, Hybrid, Evaluation, Optimization & Production",
+  "training_timings_sec": {
+    "popularity_fit_sec": 1.483,
+    "content_based_fit_sec": 45.658,
+    "collaborative_als_fit_sec": 83.656,
+    "session_based_fit_sec": 9.003,
+    "hybrid_weighted_fit_sec": 1.412,
+    "hybrid_ltr_fit_sec": 80.092
+  },
+  "ltr_feature_importances_pct": {
+    "als_norm": 38.45,
+    "content_norm": 10.18,
+    "item_time_decayed_popularity": 9.05,
+    "content_score": 8.55,
+    "hybrid_weighted_score": 6.11,
+    "popularity_score": 5.02,
+    "item_total_events": 4.93,
+    "item_recency_days": 3.3,
+    "popularity_norm": 2.98,
+    "item_smoothed_conversion_rate": 2.37,
+    "item_trend_velocity_7d_vs_30d": 2.03,
+    "session_score": 1.86,
+    "als_score": 1.8,
+    "user_item_category_match": 0.85,
+    "session_norm": 0.76,
+    "user_recency_days": 0.52,
+    "item_events_last_7d": 0.48,
+    "user_total_events": 0.22,
+    "user_repeat_interaction_ratio": 0.21,
+    "user_category_entropy": 0.15,
+    "source_count": 0.09,
+    "user_views_count": 0.06,
+    "user_transactions_count": 0.03,
+    "user_carts_count": 0.0
+  },
+  "evaluation": {
+    "k": 10,
+    "evaluated_users_count": 500,
+    "global_metrics": {
+      "1. Popularity Baseline": {
+        "Precision@10": 0.001,
+        "Recall@10": 0.009,
+        "MAP@10": 0.00258,
+        "NDCG@10": 0.00423,
+        "HitRate@10": 0.01,
+        "CatalogCoverage": 6e-05,
+        "Diversity@10": 0.9006,
+        "LongTailRecall@10": 0.0,
+        "AvgLatencyMs": 0.132
+      },
+      "2. Content-Based": {
+        "Precision@10": 0.0106,
+        "Recall@10": 0.09413,
+        "MAP@10": 0.05835,
+        "NDCG@10": 0.06772,
+        "HitRate@10": 0.104,
+        "CatalogCoverage": 0.0206,
+        "Diversity@10": 0.1018,
+        "LongTailRecall@10": 0.08206,
+        "AvgLatencyMs": 126.251
+      },
+      "3. Collaborative ALS": {
+        "Precision@10": 0.01,
+        "Recall@10": 0.0611,
+        "MAP@10": 0.03452,
+        "NDCG@10": 0.04302,
+        "HitRate@10": 0.078,
+        "CatalogCoverage": 0.00506,
+        "Diversity@10": 0.496,
+        "LongTailRecall@10": 0.00382,
+        "AvgLatencyMs": 5.344
+      },
+      "4. Session-Based": {
+        "Precision@10": 0.0118,
+        "Recall@10": 0.07348,
+        "MAP@10": 0.04715,
+        "NDCG@10": 0.05751,
+        "HitRate@10": 0.104,
+        "CatalogCoverage": 0.0062,
+        "Diversity@10": 0.2727,
+        "LongTailRecall@10": 0.00382,
+        "AvgLatencyMs": 0.125
+      },
+      "5. Hybrid Weighted": {
+        "Precision@10": 0.0194,
+        "Recall@10": 0.13145,
+        "MAP@10": 0.06736,
+        "NDCG@10": 0.08777,
+        "HitRate@10": 0.166,
+        "CatalogCoverage": 0.01415,
+        "Diversity@10": 0.336,
+        "LongTailRecall@10": 0.05153,
+        "AvgLatencyMs": 146.172
+      },
+      "6. Hybrid LightGBM LTR": {
+        "Precision@10": 0.0196,
+        "Recall@10": 0.14074,
+        "MAP@10": 0.07582,
+        "NDCG@10": 0.09606,
+        "HitRate@10": 0.172,
+        "CatalogCoverage": 0.0153,
+        "Diversity@10": 0.3416,
+        "LongTailRecall@10": 0.05534,
+        "AvgLatencyMs": 306.987
+      }
+    },
+    "segment_metrics": {
+      "1. Popularity Baseline": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.01143,
+          "NDCG@10": 0.00354,
+          "Recall@10": 0.00857
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.01215,
+          "NDCG@10": 0.00604,
+          "Recall@10": 0.01215
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.0,
+          "NDCG@10": 0.0,
+          "Recall@10": 0.0
+        }
+      },
+      "2. Content-Based": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.10857,
+          "NDCG@10": 0.05687,
+          "Recall@10": 0.09464
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.09717,
+          "NDCG@10": 0.06284,
+          "Recall@10": 0.08704
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.11538,
+          "NDCG@10": 0.10752,
+          "Recall@10": 0.11538
+        }
+      },
+      "3. Collaborative ALS": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.13143,
+          "NDCG@10": 0.06798,
+          "Recall@10": 0.09675
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.04049,
+          "NDCG@10": 0.02671,
+          "Recall@10": 0.03684
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.07692,
+          "NDCG@10": 0.03864,
+          "Recall@10": 0.05791
+        }
+      },
+      "4. Session-Based": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.2,
+          "NDCG@10": 0.11788,
+          "Recall@10": 0.14655
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.03239,
+          "NDCG@10": 0.01808,
+          "Recall@10": 0.02156
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.11538,
+          "NDCG@10": 0.04689,
+          "Recall@10": 0.07395
+        }
+      },
+      "5. Hybrid Weighted": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.28,
+          "NDCG@10": 0.15258,
+          "Recall@10": 0.21842
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.09312,
+          "NDCG@10": 0.04762,
+          "Recall@10": 0.07824
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.14103,
+          "NDCG@10": 0.06952,
+          "Recall@10": 0.10483
+        }
+      },
+      "6. Hybrid LightGBM LTR": {
+        "cold_user": {
+          "users_count": 175,
+          "HitRate@10": 0.26857,
+          "NDCG@10": 0.15109,
+          "Recall@10": 0.21647
+        },
+        "casual_user": {
+          "users_count": 247,
+          "HitRate@10": 0.10526,
+          "NDCG@10": 0.06085,
+          "Recall@10": 0.09039
+        },
+        "active_user": {
+          "users_count": 78,
+          "HitRate@10": 0.16667,
+          "NDCG@10": 0.08405,
+          "Recall@10": 0.13025
+        }
+      }
+    }
+  },
+  "production_export": {
+    "selected_model": "hybrid_ltr",
+    "metadata": {
+      "engine_format_version": "1.0.0",
+      "saved_at_utc": "2026-11-17 15:39:20 UTC",
+      "catalog_size": 466868,
+      "known_als_users": 1075493,
+      "known_als_items": 135599,
+      "use_ltr": true,
+      "bundle_sha256": "ff2ffaa4af5d11aff301dcd8e616a6ee5ede163816552b74a0850c17b08b1886"
+    },
+    "sample_warm_user_id": 1338196,
+    "sample_warm_recommendations": [
+      {
+        "itemid": 235619,
+        "score": 0.089306,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 379776,
+        "score": 0.076069,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 231755,
+        "score": 0.066088,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 11098,
+        "score": 0.060336,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 176305,
+        "score": 0.055791,
+        "source": "hybrid_ltr"
+      }
+    ],
+    "sample_cold_user_recommendations": [
+      {
+        "itemid": 461686,
+        "score": 0.35,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 187946,
+        "score": 0.314304,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 257040,
+        "score": 0.191642,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 219512,
+        "score": 0.18367,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 441852,
+        "score": 0.168629,
+        "source": "hybrid_ltr"
+      }
+    ],
+    "sample_session_recommendations": [
+      {
+        "itemid": 218794,
+        "score": 0.980273,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 171878,
+        "score": 0.859152,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 10572,
+        "score": 0.766952,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 186820,
+        "score": 0.668563,
+        "source": "hybrid_ltr"
+      },
+      {
+        "itemid": 32581,
+        "score": 0.654483,
+        "source": "hybrid_ltr"
+      }
+    ]
+  }
+}
