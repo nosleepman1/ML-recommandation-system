@@ -1,0 +1,20 @@
+{
+  "run_name": "phase8_full_benchmark",
+  "timestamp_utc": "2026-11-17 15:40:29 UTC",
+  "parameters": {
+    "eval_users": 500,
+    "k": 10,
+    "selected_production_model": "hybrid_ltr"
+  },
+  "metrics": {
+    "Precision@10": 0.0196,
+    "Recall@10": 0.14074,
+    "MAP@10": 0.07582,
+    "NDCG@10": 0.09606,
+    "HitRate@10": 0.172,
+    "CatalogCoverage": 0.0153,
+    "Diversity@10": 0.3416,
+    "LongTailRecall@10": 0.05534,
+    "AvgLatencyMs": 306.987
+  }
+}
